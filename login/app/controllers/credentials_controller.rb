@@ -3,12 +3,12 @@ class CredentialsController < ApplicationController
 
     def login
         @users = [
-            { email: "jim@jimmail.com", password: "Jimmyjimmles"},
-            { email: "female@email.com", password: "girly"}
+            { email: "jim@jimmail.com", password: "Jimmyjimmles", name: "Jim Jimmles"},
+            { email: "female@email.com", password: "girly", name: "girly girl"}
         ]
         user = @users.find{|user| user[:email] == params[:email]}
-        if user and user[:password] == params[:password]
-            render plain: "Logged in as #{user[:email]}!"
+        if user && user[:password] == params[:password]
+            render plain: "Logged in as #{user[:name]}!"
         else
             render plain: "Wrong email or password!"
         end
