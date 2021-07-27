@@ -34,14 +34,18 @@ const item = {
   }
 }
 
-const Loader = ({ setLoading }) => {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 4000);
-    return () => clearTimeout(timer);
-  });
+const itemMain = {
+  hidden: {opacity: 0, y: 200},
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [0.6, 0.01, -0.05, 0.95],
+    }
+  }
+}
 
+const Loader = ({ setLoading }) => {
   return (
     <div className='loader'>
       <motion.div
@@ -50,6 +54,7 @@ const Loader = ({ setLoading }) => {
         initial="hidden"
         animate="show"
         exit="exit"
+        onAnimationComplete={() => setLoading(false)}
       >
         <ImageBlock variants={item} id='image-1' />
         <div className='transition-image'>
