@@ -67,12 +67,21 @@ const BannerRowTop = ({ title }) => {
       <div className="row-col">
         <AnimatedLetters title={title} />
       </div>
-      <div className="row-col">
+      <motion.div
+        className="row-col"
+        initial={{opacity: 0, y: 80}}
+        animate={{opacity: 1, y: 0}}
+        transition={{
+          ease: "easeInOut",
+          duration: 1,
+          delay: 0.4,
+        }}
+      >
         <span className="row-message">
           We are specialised in setting up the foundation of your brand and
           setting you up for success.
         </span>
-      </div>
+      </motion.div>
     </div>
   );
 };
