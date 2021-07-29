@@ -31,6 +31,12 @@ const Banner = () => {
   const [playMarquee, setPlayMarquee] = useState(false);
 
   useEffect(() => {
+    setTimeout(() => {
+      setPlayMarquee(true);
+    }, 2200);
+  })
+
+  useEffect(() => {
     setPlayMarquee(true);
   }, []);
   return (
