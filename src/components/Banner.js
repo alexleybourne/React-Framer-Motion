@@ -1,4 +1,29 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+
+// Variants
+
+const banner = {
+  animate: {
+    transition: {
+      delayChildren: 0.4,
+      staggerChildren: 0.1,
+    },
+  },
+}
+
+const letterAnimation = {
+  initial: {
+    y: 400,
+  },
+  animate: {
+    y: 0,
+    transition: {
+      ease: [0.6, 0.01, -0.05, 0.1],
+      duration: 1,
+    },
+  },
+}
 
 const Banner = () => {
   const [playMarquee, setPlayMarquee] = useState(false);
@@ -7,20 +32,33 @@ const Banner = () => {
     setPlayMarquee(true);
   }, []);
   return (
-    <div className="banner">
+    <motion.div
+      className="banner"
+      variants={banner}
+    >
       <BannerRowTop title={"brand"} />
       <BannerRowCenter title={"experience"} playMarquee={playMarquee} />
       <BannerRowBottom title={"studio"} />
-    </div>
+    </motion.div>
   );
 };
 
 const AnimatedLetters = ({ title }) => (
-  <span className="row-title">
+  <motion.span
+    className="row-title"
+    variants={banner}
+    initial="initial"
+    animate="animate"
+  >
     {[...title].map((letter) => (
-      <span className="row-letter">{letter}</span>
+      <motion.span
+        className="row-letter"
+        variants={letterAnimation}
+      >
+        {letter}
+      </motion.span>
     ))}
-  </span>
+  </motion.span>
 );
 
 const BannerRowTop = ({ title }) => {
