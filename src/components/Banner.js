@@ -33,12 +33,9 @@ const Banner = () => {
   useEffect(() => {
     setTimeout(() => {
       setPlayMarquee(true);
-    }, 2200);
-  })
+    }, 2600);
+  });
 
-  useEffect(() => {
-    setPlayMarquee(true);
-  }, []);
   return (
     <motion.div
       className="banner"
@@ -108,23 +105,23 @@ const BannerRowBottom = ({ title }) => {
         }}
       >
         <motion.span
-          initial={{opacity: 0, y: 20}}
+          initial={{opacity: 0, y: 40}}
           animate={{opacity: 1, y: 0}}
           transition={{
             ease: 'easeInOut',
-            duration: 1,
-            delay: 1.8,
+            duration: 0.6,
+            delay: 2.2,
           }}
         >
           scroll
         </motion.span>
         <motion.span
-          initial={{opacity: 0, y: 20}}
+          initial={{opacity: 0, y: 40}}
           animate={{opacity: 1, y: 0}}
           transition={{
             ease: 'easeInOut',
-            duration: 1,
-            delay: 1.8,
+            duration: 0.6,
+            delay: 2.4,
           }}
         >
           down
