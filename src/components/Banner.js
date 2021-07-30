@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import "../animation";
 
 // Variants
-
-const magicEase = [0.6, 0.01, -0.05, 0.1];
 
 const banner = {
   animate: {
@@ -21,7 +20,7 @@ const letterAnimation = {
   animate: {
     y: 0,
     transition: {
-      ease: magicEase,
+      ease: global.animation.magicEase,
       duration: 1,
     },
   },
@@ -99,7 +98,7 @@ const BannerRowBottom = ({ title }) => {
         initial={{scale: 0}}
         animate={{scale: 1}}
         transition={{
-          ease: magicEase,
+          ease: global.animation.magicEase,
           duration: 1,
           delay: 1.6
         }}

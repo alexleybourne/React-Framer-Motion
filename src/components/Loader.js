@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "./Image";
+import "../animation";
 
 // Variants
 const container = {
@@ -20,7 +21,7 @@ const item = {
     opacity: 1,
     y: 0,
     transition: {
-      ease: [0.6, 0.01, -0.05, 0.95],
+      ease: global.animation.magicEase,
       duration: 1.6,
     },
   },
@@ -40,7 +41,7 @@ const itemMain = {
     opacity: 1,
     y: 0,
     transition: {
-      ease: [0.6, 0.01, -0.05, 0.95],
+      ease: global.animation.magicEase,
       duration: 1.6,
     }
   }

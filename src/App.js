@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion"
 import "./sass/main.scss";
+import "./animation";
 
 // Components
 import Header from "./components/Header";
@@ -33,7 +34,7 @@ function App() {
                   src={process.env.PUBLIC_URL + `/images/image-2.jpg`}
                   alt="studio"
                   layoutId="main-image-1"
-                  transition={{ease: [0.6, 0.01, -0.05, 0.9], duration: 1.6}}
+                  transition={{ease: global.animation.magicEase, duration: 1.6}}
                 />
               </div>
             )}
